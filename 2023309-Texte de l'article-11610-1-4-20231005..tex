@@ -1,0 +1,4490 @@
+SOME GEOMETRIC APPLICATIONS OF THE DISCRETE HEAT FLOW
+
+ALEXANDROS ESKENAZIS
+
+Abstract. We present two geometric applications of heat ﬂow methods on the discrete hyper-
+cube {−1,1}n. First, we prove that if X is a ﬁnite-dimensional normed space, then the bi-Lipschitz
+distortion required to embed {−1,1}n equipped with the Hamming metric into X satisﬁes
+
+(cid:16){−1,1}n(cid:17) (cid:38) sup
+
+cX
+
+p∈[1,2]
+
+n
+
+Tp(X)min{n,dim(X)}1/p
+
+,
+
+where Tp(X) is the Rademacher type p constant of X. This estimate yields a mutual reﬁnement
+of distortion lower bounds which follow from works of Oleszkiewicz (1996) and Ivanisvili, van
+Handel and Volberg (2020) for low-dimensional spaces X. The proof relies on an extension of
+an important inequality of Pisier (1986) on the biased hypercube combined with an application
+of the Borsuk–Ulam theorem from algebraic topology. Secondly, we introduce a new metric
+invariant called metric stable type as a functional inequality on the discrete hypercube and prove
+that it coincides with the classical linear notion of stable type for normed spaces. We also show
+that metric stable type yields bi-Lipschitz nonembeddability estimates for weighted hypercubes.
+
+2020 Mathematics Subject Classiﬁcation. Primary: 46B85; Secondary: 30L15, 42C10, 46B07.
+Key words. Hamming cube, Rademacher type, metric embeddings, Borsuk–Ulam theorem, stable type.
+
+Let {−1,1}n be the n-dimensional discrete hypercube equipped with the Hamming metric
+
+1. Introduction
+
+(cid:88) i
+
+=1
+
+n
+
+|x(i)− y(i)|,
+
+(1)
+
+1 2
+
+ρ(x, y) =
+
+∀ x, y ∈ {−1,1}n,
+
+∀ p, q ∈ M,
+
+where x = (x(1), . . . , x(n)) and y = (y(1), . . . , y(n)). The purpose of the present paper is to investi-
+gate certain metric properties of the Hamming cube via heat ﬂow methods.
+1.1. Dimensionality of Hamming metrics. If (M, dM) is a metric space and (Y ,(cid:107) · (cid:107)Y ) is a
+normed space, we say that M embeds into Y with bi-Lipschitz distortion at most D ∈ [1,∞),
+if there exists a mapping f : M → Y satisfying
+
+dM(p, q) ≤ (cid:107)f (p)− f (q)(cid:107)Y ≤ DdM(p, q).
+
+(2)
+The least D ≥ 1 for which such an embedding exists will be denoted by cY (M). The rapidly
+growing ﬁeld of metric dimension reduction aims to uncover conditions under which given
+families of metric spaces admit (or do not admit) embeddings into low-dimensional normed
+spaces with prescribed properties. Without attempting to survey this vast area, we note that
+important contributions have been made on low-dimensional embeddings of ﬁnite subsets of
+Hilbert space [29], arbitrary ﬁnite metric spaces [30, 3, 41, 42], discrete hypercubes [56, 34],
+diamond graphs [14, 35, 52], Laakso graphs [24, 34], ultrametric spaces [8], series-parallel
+graphs [15], recursive cycle graphs [1], Heisenberg-type metrics [32, 54], (cid:96)p variants of thin
+Laakso structures [7, 9] and expander graphs [48, 50]. We refer to the survey [49] for more
+bibliographic information and to [26, 38, 69, 2] for a sample of algorithmic applications.
+
+The ﬁrst to study the bi-Lipschitz embeddability of hypercubes into normed spaces was
+Enﬂo. In the seminal work [20], he introduced the notion of roundness of a metric space and
+used it to show that any embedding of the Hamming cube {−1,1}n into an Lp(µ) space, where
+p ∈ [1,2], incurs bi-Lipschitz distortion at least n1−1/p (see also [19, 21] for additional early
+
+1
+
+n
+
+(cid:16)
+
+(cid:107)vi(cid:107)p
+X,
+
+(cid:88) i
+
+=1
+
+(cid:17)(cid:13)(cid:13)(cid:13)p
+
+x(1), . . . ,−x(i), . . . , x(n)
+
+Lp(µ) dσn(x) ≤ n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)f (x)−f (−x)
+
+results along these lines). More speciﬁcally, Enﬂo proved that if p ∈ [1,2], then any mapping
+(cid:90)
+of the form f : {−1,1}n → Lp(µ) satisﬁes the estimate
+(cid:13)
+(cid:13)
+(cid:13)f (x)−f
+Lp(µ) dσn(x), (3)
+where σn is the uniform probability on {−1,1}n. This readily implies that if f has bi-Lipschitz
+distortion D, then D ≥ n1−1/p. In the follow-up work [21], he raised an inﬂuential problem by
+asking for which normed spaces (X,(cid:107)·(cid:107)X), inequality (3) is satisﬁed for X-valued functions f up
+this requirement to linear functions f (x) =(cid:80)n
+to a multiplicative constant T , independent of the choice of f or the dimension n. Restricting
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+i=1 xivi, one recovers the necessary condition
+dσn(x) ≤ T p
+
+(4)
+which must be satisﬁed for every n ∈ N and vectors v1, . . . , vn ∈ X. If a normed space X satisﬁes
+(4), we say that X has Rademacher type p and the least constant T is denoted by Tp(X). Af-
+ter decades of substantial eﬀorts (see [13, 64, 53, 25, 22]), Ivanisvili, van Handel and Volberg
+resolved Enﬂo’s problem in the breakthrough work [27] by proving the suﬃciency of this con-
+dition, namely that any normed space of Rademacher type p also has Enﬂo’s nonlinear type p.
+Consequently, any bi-Lipschitz embedding of {−1,1}n into a normed space X of Rademacher
+−1n1−1/p. We note in passing that,
+type p incurs distortion at least a constant multiple of Tp(X)
+conversely, a classical theorem of Pisier [57] implies that if X does not have type p for any
+p > 1, then {−1,1}n embeds into X with bi-Lipschitz distortion at most 1 + ε, for any ε > 0.
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+{−1,1}n
+
+{−1,1}n
+
+{−1,1}n
+
+(cid:90)
+
+(cid:90)
+
+xivi
+
+i=1
+
+Independently of this line of research, the beautiful (but perhaps overlooked) work [56] of
+Oleszkiewicz established a nonembeddability result for discrete hypercubes in the context of
+dimensionality reduction. Following Ball, Carlen and Lieb [5], we say that a normed space is
+p-uniformly smooth, where p ∈ [1,2], if there exists a constant S > 0 such that
+
+i=1
+
+X
+
+∀ x, y ∈ X,
+
+(cid:107)x(cid:107)p
+
+X +(cid:107)y(cid:107)p
+
+X
+
+2
+
+≤(cid:13)(cid:13)(cid:13)(cid:13) x + y
+
+2
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13) x− y
+
+2
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
++ Sp
+
+;
+
+(5)
+
+cX
+
+the least such constant S is denoted by Sp(X). A well-known tensorization argument due to
+Pisier [60] shows that Tp(X) ≤ Sp(X), yet there exist examples of normed spaces X for which
+Tp(X) < ∞ whereas Sp(X) = ∞ for p ∈ (1,2], see [61, 28, 65]. The main result of Oleszkiewicz’s
+paper [56] asserts that the distortion required to embed {−1,1}n into a ﬁnite-dimensional
+normed space X satisﬁes
+
+(cid:16){−1,1}n(cid:17) ≥ sup
+(see also [6] for a precursor of this result for linear embeddings). This substantially improves
+the bound cX({−1,1}n) (cid:38) supp∈[1,2] Tp(X)
+−1n1−1/p which follows from [27], at least for spaces X
+with p-smoothness constant Sp(X) (cid:16) 1 and dimension dim(X) << n.
+The ﬁrst goal of the present paper is to revisit the technique used for Oleszkiewicz’s nonem-
+beddability theorem [56], in particular proving the following mutual reﬁnement of his result
+and of the recent work of Ivanisvili, van Handel and Volberg [27].
+Theorem 1. Let (X,(cid:107)·(cid:107)X) be a ﬁnite-dimensional normed space. Then, for any n ≥ 1, we have
+
+Sp(X)min{n,dim(X)}1/p
+
+p∈[1,2]
+
+(6)
+
+n
+
+(cid:16){−1,1}n(cid:17) (cid:38) sup
+
+cX
+
+n
+
+Tp(X)min{n,dim(X)}1/p
+
+(7)
+
+p∈[1,2]
+
+We emphasize that, in contrast to Oleszkiewicz’s bound (6), Theorem 1 captures more accu-
+rately the nonembeddability of the hypercube into (ﬁnite-dimensional subspaces of) normed
+spaces which have Rademacher type p but are not r-smooth for any r ∈ (1,2], see [28, 65].
+
+2
+
+About the proof. Theorem 1 is proven by a combination of semigroup tools with a clever topo-
+logical trick of [56]. More speciﬁcally, let f : {−1,1}n → X be a function, where X is a d-
+dimensional normed space and d < n. An application of the Borsuk–Ulam theorem [43] for the
+unique multilinear extension of f implies that there exists a subset σ ⊆ {1, . . . , n} with |σ| = d, a
+product measure ν on {−1,1}σ and a point w ∈ {−1,1}σ c such that
+
+f (x, w) dν(x) =
+
+{−1,1}σ
+
+{−1,1}σ
+
+f (−x,−w) dν(x).
+
+(8)
+
+(cid:90)
+
+(cid:90)
+
+Then, a Poincaré inequality à la Enﬂo for the product measure ν (instead of the uniform mea-
+sure σd) on the d-dimensional subcubes {−1,1}σ ×{w} and {−1,1}σ ×{−w} yields the distortion
+bounds of Theorem 1 (see Theorem 14 and also equation (78) below).
+In the case of p-uniformly smooth spaces, Oleszkiewicz [56] used (8) and a bootstrap argu-
+ment for the Lipschitz constant of f , based on the two-point inequality (5), to obtain (6). In
+our case, the biased Poincaré inequality which will yield (7) is an extension of an inequality
+for the uniform measure that was proven in [27]. The key technical contribution of [27] was a
+novel representation of the time derivative of the heat ﬂow on {−1,1}n. Instead, we consider a
+Markov process having the product measure ν as stationary measure (see Section 2) and prove
+a formula for the time derivative of the corresponding semigroup (see Proposition 13) which
+extends the formula of [27] (see also (47) below). Due to the fact that our product measure
+ν is no longer the stationary measure of the random walk on a group, the resulting identity
+lacks some homogeneity properties that were used in [27], but nevertheless it is suﬃcient for
+the proof of the biased Poincaré inequality which is needed for our geometric application.
+1.2. A Pisier–Talagrand inequality on the biased cube. For α ∈ (0,1) we denote by µα the α-
+biased probability measure on {−1,1} with µα{1} = α and µα{−1} = 1−α. The proof of Theorem
+1 yields as a consequence the following extension and reﬁnement of Pisier’s inequality [64].
+Theorem 2. For every p ∈ [1,∞) and α ∈ (0,1), there exist Kp,α,Cα ∈ (0,∞) such that the following
+holds. For any normed space (X,(cid:107)·(cid:107)X) and any n ∈ N, every function f : {−1,1}n → X satisﬁes
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f −
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Lp(log L)p/2(µn
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+
+(cid:90)
+
+
+
+
+
+
+≤ Kp,α
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+dσn(δ)
+
+{−1,1}n
+
+{−1,1}n
+
+f dµn
+α
+
+δi(cid:128)α
+i f
+
+(cid:90)
+
+Lp(µn
+
+α;X)
+
+α;X)
+
+i=1
+
+(9)
+
++ Cα(log n + 1)
+
+dσn(δ).
+
+If additionally X is assumed to be of ﬁnite cotype, then there exists Kp,α(X) ∈ (0,∞) such that
+
+
+
+
+
+1/p
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Lp(log L)p/2(µn
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f −
+
+≤ Kp,α(X)
+
+
+(cid:90)
+
+
+
+
+
+
+dσn(δ)
+
+{−1,1}n
+
+{−1,1}n
+
+{−1,1}n
+
+f dµn
+α
+
+δi(cid:128)α
+i f
+
+(cid:90)
+
+Lp(µn
+
+α;X)
+
+α;X)
+
+α;X)
+
+δi(cid:128)α
+i f
+
+.
+
+(10)
+
+(cid:90)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+i=1
+
+
+
+
+
+
+
+1/p
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)L1(µn
+
+The (standard) deﬁnitions of Orlicz norms, cotype and discrete derivatives will be given at
+the main part of the article. Theorem 2 is an optimal vector-valued version of a deep loga-
+rithmic Sobolev inequality of Talagrand [67]. In the case of the uniform measure which corre-
+sponds to α = 1
+
+2, Theorem 2 was proven recently in [16].
+
+1.3. Metric stable type. Besides its interest in the context of embedding theory, the work [27]
+of Ivanisvili, van Handel and Volberg was a major contribution to a long-standing research
+program in nonlinear functional analysis called the Ribe program. Put simply, the foundational
+idea of the program (as put forth by Bourgain [12], who was inspired by a landmark rigidity
+theorem of Ribe [66]) is that isomorphic local properties of normed spaces can be equivalently
+reformulated using only distances between pairs of points, with no reference to the spaces’
+linear structure (see also [46, 4]). In this sense, the main result of [27] completes the Ribe
+program for Rademacher type by proving that it is equivalent to nonlinear Enﬂo type.
+
+3
+
+Among the various isomorphic properties studied in the local theory of normed spaces,
+stable type (see [58, 59]) plays a prominent role, in particular due to its relation to the problem
+of identifying (cid:96)n
+p subspaces of Banach spaces [63]. Recall that a symmetric random variable θ
+is distributed according to the standard p-stable law, where p ∈ (0,2], if it satisﬁes Eexp(itθ) =
+exp(−|t|p) for every t ∈ R. A Banach space (X,(cid:107) · (cid:107)X) is said to have stable type p if for every
+(cid:18) n(cid:88)
+r < p, every n ∈ N and every vectors v1, . . . , vn ∈ X, we have
+
+(cid:19)1/p
+
+(cid:18)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+E
+
+(cid:19)1/r ≤ Cp,r(X)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)r
+
+X
+
+θivi
+
+(cid:107)vi(cid:107)p
+
+X
+
+,
+
+i=1
+
+(11)
+
+where the constant Cp,r(X) depends only on p, r and X, but not on n or the choice of v1, . . . , vn,
+and θ1, θ2, . . . are independent standard symmetric p-stable random variables.
+In the special case p = 2, p-stable random variables are Gaussians and thus stable type 2
+coincides with Rademacher type 2. Moreover, any space with stable type p ∈ [1,2) also has
+Rademacher type p but the converse does not necessarily hold. In fact, early results of Maurey
+and Pisier in the theory of type (see [58, Proposition 3] and [59, Théorème 1]), show that a
+normed space X has stable type p ∈ [1,2) if and only if X has Rademacher type p + ε for some
+ε > 0. Therefore, formally, the Ribe program for stable type p ∈ [1,2) has been completed by
+[27]: a normed space X has stable type p if and only if X has Enﬂo type p + ε for some ε > 0. In
+other words, stable type p of a normed space X can be characterized by the validity of some, a
+priori unknown, X-valued Poincaré-type inequality from a given family.
+
+(cid:16)
+
+(12)
+
+2 dM
+
+(cid:17)(cid:17)
+
+.
+
+(cid:107)w(cid:107)(cid:96)n
+p,∞
+
+To amend this, we shall introduce a new nonlinear invariant called metric stable type which
+is again a Poincaré-type inequality for functions deﬁned on the discrete hypercube and will
+(cid:16)
+serve as a metric characterization of stable type for normed spaces. If (M, dM) is a metric space
+and f : {−1,1}n → M is an M-valued function, we denote
+x(1), . . . ,−x(i), . . . , x(n)
+f (x), f
+r · #{i : |wi| ≥ r}1/p(cid:111)
+(cid:110)
+Moreover, we shall denote the weak (cid:96)p norm on Rn by
+
+∀ x ∈ {−1,1}n,
+
+∀ w ∈ Rn,
+
+dif (x) def= 1
+
+(cid:16)
+(cid:17)p
+f (x), f (−x)
+{−1,1}n
+p,∞ ≤ (cid:107) · (cid:107)(cid:96)n
+
+def= sup
+r≥0
+where #S denotes the cardinality of a ﬁnite set S.
+Deﬁnition 3. A metric space (M, dM) has metric stable type p ∈ (0,2) with constant S ∈ (0,∞) if for
+(cid:90)
+any n ∈ N, every function f : {−1,1}n → M satisﬁes
+
+(cid:90)
+Since (cid:107) · (cid:107)(cid:96)n
+p by Markov’s inequality, any space with metric stable type p also has
+Enﬂo type p with the same constant. We shall prove the following metric characterization.
+Theorem 4. A normed space X has metric stable type p ∈ [1,2) if and only if X has stable type p.
+Pisier’s K-convexity theorem [62], asserts that a Banach space X is K-convex if and only
+if it has Rademacher type p for some p > 1. In view of the aforementioned characterization
+of stable type [58, 59], this is equivalent to X having stable type 1 and thus we derive the
+following metric characterization of K-convexity by a Poincaré inequality.
+
+dσn(x) ≤ Sp
+
+d1f (x), . . . , dnf (x)
+
+p,∞ dσn(x).
+(cid:96)n
+
+(cid:17)(cid:13)(cid:13)(cid:13)p
+
+(cid:13)(cid:16)
+(cid:13)
+(cid:13)
+
+{−1,1}n
+
+(13)
+
+(14)
+
+dM
+
+,
+
+Corollary 5. A normed space X is K-convex if and only if X has metric stable type 1.
+
+Embeddings. The fact that stable type of Banach spaces is a reﬁnement of Rademacher type
+can also be seen at the level of (linear) embeddings. Indeed, if X is a space of Rademacher type
+p, then standard considerations show that the Banach–Mazur distance between (cid:96)n
+1 and any
+n-dimensional subspace of X is at least a constant multiple of n1−1/p. This estimate is sharp
+for X = (cid:96)p. On the other hand, if X has stable type p, then the characterization of [58, 59]
+
+4
+
+n
+
+=1
+
+1 2
+
+(cid:88) i
+
+∀ x, y ∈ {−1,1}n,
+
++, consider the metric space {−1,1}n
+
+implies that X has Rademacher type r for some r > p. Hence, there exists ε(X) > 0 such that the
+1 and any n-dimensional subspace of X is at least n1−1/p+ε(X).
+Banach–Mazur distance between (cid:96)n
+In the metric setting, Enﬂo type gives distortion lower bounds for embeddings of {−1,1}n.
+More generally, given a vector w = (w1, . . . , wn) ∈ Rn
+w which
+is the hypercube {−1,1}n equipped with the weighted Hamming metric
+wi|x(i)− y(i)|.
+
+(15)
+It follows readily from the deﬁnitions that if M has Enﬂo type p, then any embedding of {−1,1}n
+into M incurs distortion at least a constant multiple of (cid:107)w(cid:107)(cid:96)n
+1 /(cid:107)w(cid:107)(cid:96)n
+w
+p . For spaces of metric stable
+type p, we have the following improvement for the distortion of weighted hypercubes.
+(cid:17) ≥ (cid:107)w(cid:107)(cid:96)n
+Proposition 6. If a metric space (M, dM) has metric stable type p with constant S, then
+S(cid:107)w(cid:107)(cid:96)n
+1
+(16)
+p,∞
+p,∞ (cid:16) 1, whereas
+−1/p, we have that (cid:107)w(cid:107)(cid:96)n
+Concretely, choosing the weight vector w with wi = i
+(cid:107)w(cid:107)(cid:96)n
+(cid:16) (log n)1/p, therefore any embedding of {−1,1}n
+w into a metric space of Enﬂo type p
+incurs distortion at least n1−1/p/(log n)1/p instead of the asymptotically stronger lower bound
+n1−1/p which one gets for target spaces of metric stable type p.
+On the nonlinear Maurey–Pisier problem for type. A landmark theorem of Maurey and Pisier [44]
+asserts that if pX ∈ [1,2] is the supremal Rademacher type of an inﬁnite-dimensional Banach
+space X, then X containts the spaces (cid:96)n
+pX uniformly. In [63], Pisier used stable type to give a
+much simpler proof of this important theorem, while simultaneously obtaining the following
+quantitative reﬁnement: for any ε > 0 and p ∈ [1,2), every normed space X containts a subspace
+which is (1 + ε)-isomorphic to (cid:96)d
+p provided that d is smaller than some explicit (unbounded)
+function of ε and the stable type p constant of X. When X is inﬁnite-dimensional, this yields
+the result of [44] since X does not have stable type pX by the results of [58, 59].
+
+(cid:16){−1,1}n
+
+∀ w ∈ Rn
++,
+
+In [13], Bourgain, Milman and Wolfson introduced a notion of nonlinear type, which is now
+referred to as BMW type, and showed that if a metric space M does not have BMW type p for
+any p > 1, then cM({−1,1}n) = 1 for any n ∈ N. Finding a satisfactory nonlinear Maurey–Pisier
+theorem for metric spaces of supremal nonlinear type p > 1 remains an open problem (see also
+[47, Section 6]). It would be interesting to understand whether the newly introduced notion
+of metric stable type can lead to a nonlinear version of the result of [63]. We refer to Section 6
+for further remarks and open problems which naturally arise from this work.
+
+ρw(x, y) =
+
+cM
+
+w
+
+.
+
+p
+
+Acknowledgements. I wish to thank Florent Baudier, Paata Ivanisvili and Assaf Naor for their
+constructive feedback on this work.
+
+2. Preliminaries
+
+2.1. Probability. In this section, we outline the basics of analysis on the biased hypercube,
+with an emphasis on the underlying semigroup structure.
+The biased measure. Recall that, for α ∈ (0,1), the α-biased probability measure µα on {−1,1}
+is given by µα{1} = α and µα{−1} = 1 − α. Moreover, if ααα = (α1, . . . , αn) ∈ (0,1)n, then we shall
+denote by µααα the product measure µα1
+}t≥0 on {−1,1} given by
+The Markov process. For α ∈ (0,1), consider the transition matrices {pα
+(1− e
+1− (1− e
+
+⊗···⊗ µαn on the hypercube {−1,1}n.
+
+(cid:32)
+1− (1− e
+(1− e
+
+(cid:33)
+−t)(1− α)
+−t)α
+
+t (1,−1)
+pα
+pα
+t (1,1)
+t (−1,1) pα
+t (−1,−1)
+pα
+
+−t)(1− α)
+−t)α
+
+∀ t ≥ 0,
+
+(17)
+
+(cid:32)
+
+(cid:33)
+
+=
+
+t
+
+5
+
+(cid:17)
+
+(cid:16)
+
+(cid:89) i
+
+=1
+
+n
+
+Moreover, for ααα = (α1, . . . , αn) ∈ (0,1)n consider the corresponding tensor products {pααα
+{−1,1}n given by
+
+t
+
+}t≥0 on
+
+∀ x, y ∈ {−1,1}n,
+
+pαi
+t
+
+t
+
+t
+
+.
+
+pααα
+t (x, y) =
+
+x(i), y(i)
+
+As each pαi
+2n × 2n matrices pααα
+t
+chain {Xααα
+
+(18)
+is a row-stochastic 2×2 matrix with nonnegative entries, the same holds also for the
+}t≥0 is the transition kernel of a time-homogeneous Markov
+t . Therefore, {pααα
+P(cid:110)
+}t≥0 on {−1,1}n, that is
+∀ t, s ≥ 0,
+}t≥0 be a Markov process on {−1,1}n with transition kernels
+
+where x, y ∈ {−1,1}n. We shall need the following simple facts for this process.
+Lemma 7. Fix ααα ∈ (0,1)n and let {Xααα
+{pααα
+Proof. Due to the product structure of the Markov chain, it suﬃces to consider the case n = 1,
+that is, to prove that for α ∈ (0,1),
+
+}t≥0 is stationary and reversible with respect to µααα.
+
+}t≥0. Then, {Xααα
+
+(cid:12)
+(cid:12)
+(cid:12) Xααα
+
+t (x, y),
+
+t+s = y
+
+s = x
+
+= pααα
+
+(19)
+
+Xααα
+
+(cid:111)
+
+t
+
+t
+
+t
+
+t
+
+f
+
+.
+
+(cid:105)
+
+∈S
+
+µαi
+
+f d
+
+Xααα
+t
+
+(22)
+
+µαi .
+
+0 = x
+
+{−1,1}S
+
+t (y, x).
+
+(cid:111)(cid:90)
+
+t (x, y) = µα(y)pα
+
+(cid:89) i
+
+(20)
+This follows automatically by the expression (17) for the transition matrix. The simple fact
+(cid:3)
+that reversibility implies stationarity is well-known [37, Proposition 1.20].
+}t≥0 has a simple probabilistic interpretation which we
+The stationary Markov process {Xααα
+shall now describe. For i = 1, . . . , n, let {Nt(i)}t≥0 be n independent Poisson processes of unit rate
+0 is sampled from µααα independently of {Nt}t≥0. Then, at any time t > 0 for
+and suppose that Xααα
+which the process Nt(i) jumps for some i ∈ {1, . . . , n}, the corresponding value Xααα
+t (i) is updated
+independently from µαi . An explicit calculation shows that this probabilistic construction
+gives rise exactly to the transition kernel of (17) and (18).
+}t≥0 be the Markov semigroup associated
+The corresponding semigroup. Fix ααα ∈ (0,1)n and let {P ααα
+}t≥0. Concretely, if X is a vector space, then for every function f : {−1,1}n →
+to the process {Xααα
+(cid:16)
+X and t ≥ 0, we denote by
+
+P ααα
+(21)
+In view of the above interpretation of {Xααα
+}t≥0 by means of a Poisson process, the action of the
+semigroup {P ααα
+(cid:90)
+P ααα
+t f =
+
+(cid:88)
+}t≥0 can be computed via the identity
+(cid:88)
+
+Nt(i) > 0 for i ∈ S and Nt(i) = 0 for i (cid:60) S
+−t)
+|S|
+
+{−1,1}S
+Lemma 8. Fix ααα = (α1, . . . , αn) ∈ (0,1)n and let {P ααα
+its generator Lααα on a function f : {−1,1}n → X, where X is a vector space, is given by
+
+f d
+}t≥0 be the semigroup (21). Then, the action of
+
+t f (x) = E(cid:104)
+
+∀ x ∈ {−1,1}n,
+
+(cid:17)(cid:12)(cid:12)(cid:12) Xααα
+
+(cid:89) i
+
+S⊆{1,...,n}
+
+S⊆{1,...,n}
+
+µα(x)pα
+
+(1− e
+
+−t(n−|S|)
+
+P(cid:110)
+
+∈S
+
+=
+
+e
+
+t
+
+t
+
+t
+
+t
+
+∀ x, y ∈ {−1,1},
+
+(23)
+
+(cid:3)
+
+(cid:128)αi
+i f (x)
+
+P ααα
+t f (x).
+
+i=1
+
+Lαααf (x) = − n(cid:88)
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)t=0
+
+d d
+
+Lαααf (x) =
+
+t
+
+t
+
+∀ x ∈ {−1,1}n,
+
+∀ x ∈ {−1,1}n,
+
+i f (x) = f (x)−(cid:82)
+
+where (cid:128)β
+
+{−1,1} f (x1, . . . , xi−1, y, xi+1, . . . , xn) dµβ(y) for β ∈ (0,1).
+
+Proof. The claim follows from the expression (22) of the semigroup and the deﬁnition
+
+2.2. Topology. Apart from the probabilistic elements from analysis on biased hypercubes, the
+proof of Theorem 1 also has a crucial topological component, following an idea of [56].
+
+6
+
+where wS(a) =(cid:81)
+
+The Borsuk–Ulam theorem. While the Poincaré-type inequality of Enﬂo for X-valued functions
+on {−1,1}n cannot capture the dimension of the target space X, a key part of the argument
+towards Theorem 1 is to show that there exists a dim(X)-dimensional subcube of {−1,1}n along
+with a bias vector ααα for which the ααα-biased Poincaré inequalities (see Theorem 14 below) on
+this subcube and its antipodal yield much better distortion lower bounds. This will be proven
+using the Borsuk–Ulam theorem from algebraic topology, see [43].
+Theorem 9 (Borsuk–Ulam). For every continuous function g : Sd → Rd, where d ∈ N, there exists
+a point w ∈ Sd such that g(w) = g(−w).
+Multilinear extension and low-dimensional faces of the cube. Every function f : {−1,1}n → X
+(cid:19)
+admits a unique multilinear extension on the solid cube [−1,1]n, given by
+
+(cid:88)
+
+(cid:88)
+
+(cid:18) 1
+
+∀ y ∈ [−1,1]n,
+
+F(y) def=
+
+f (x)wS(x)
+
+wS(y),
+
+(24)
+
+S⊆{−1,1}n
+
+2n
+
+x∈{−1,1}n
+
+(cid:110)
+
+Cn
+d =
+
+i∈S ai, which is usually referred to as the Fourier–Walsh expansion of f . Ex-
+tending f to the continuous cube allows for the use of topological methods. In what follows,
+we will exploit the fact that the cube [−1,1]n is equipped with a canonical CW complex struc-
+ture. Concretely, for d ∈ {1, . . . , n}, consider the subsets
+
+x ∈ [−1,1]n : there exists σ ⊆ {1, . . . , n} with |σ| ≥ n− d and |x(i)| = 1, ∀ i ∈ σ
+n = [−1,1]n and Cn
+
+consisting of all (cid:96)-dimensional faces of [−1,1]n for (cid:96) ≤ d, so that Cn
+We shall use the following elementary topological fact (see [56, Lemma 1]).
+Lemma 10. If d < n, there exists a continuous map hd : Sd → Cn
+Combining this and the Borsuk–Ulam theorem, we deduce the following useful lemma.
+
+(cid:111)
+0 = {−1,1}n.
+d with hd(−x) = −hd(x), ∀ x ∈ Sd.
+
+(25)
+
+Lemma 11. If n, d ∈ N with d < n, then for every continuous function F : Cn
+point z ∈ Cn
+
+d such that F(z)=F(-z).
+
+d
+
+→ Rd there exists a
+
+def= F ◦ hd : Sd → Rd, where hd is the function of Lemma 10. By
+
+Proof. Consider the function g
+the Borsuk–Ulam theorem and the oddness of hd, there exists a point w ∈ Sd such that
+and the conclusion follows by choosing z = hd(w) ∈ Cn
+d.
+
+F(hd(w)) = g(w) = g(−w) = F(hd(−w)) = F(−hd(w))
+
+(26)
+(cid:3)
+
+3. Proof of Theorem 1
+
+(cid:32)
+
+We are now ready to proceed to the main part of the proof. The main analytic component is
+a biased version of the key formula of [27] for the time derivative of the heat ﬂow on {−1,1}n.
+
+t (·,·; θ) given by
+Given t ≥ 0, α ∈ (0,1) and an auxiliary parameter θ ∈ R, consider the matrix ηα
+
+
+
+
+
+ .
+t (·,·; θ).
+
+(cid:33)
+t (1,−1; θ)
+ηα
+ηα
+t (1,1; θ)
+t (−1,−1; θ)
+t (−1,1; θ) ηα
+ηα
+
+For future reference, we record the following straightforward properties of ηα
+Lemma 12. Fix t ≥ 0 and α ∈ (0,1). Then,
+pα
+t (x,1)ηα
+
+t (−1, x; θ) = 0
+
+−θ
+t (−1,1)
+pα
+t (−1,−1)
+θ
+pα
+
+−t−θ
+pα
+t (1,1)
+θ−e
+−t
+t (1,−1)
+pα
+
+t (1, x; θ) + pα
+
+
+
+
+
+
+
+ e
+
+∀ t ≥ 0,
+
+(27)
+
+=
+
+∀ x ∈ {−1,1}, θ ∈ R,
+(cid:26)
+
+pα
+t (x,1)ηα
+
+t (1, x; θ)2 + pα
+
+and
+
+min
+θ∈R
+
+max
+x∈{−1,1}
+
+t (x,−1)ηα
+(cid:27)
+
+t (x,−1)ηα
+(cid:112)
+
+(et − 1)(
+
+t (−1, x; θ)2
+−t
+t (−1,−1) +
+
+e
+
+αpα
+7
+
+=
+
+(cid:112)
+
+(1− α)pα
+
+t (1,1))2
+
+≤ 1
+et − 1
+
+.
+
+(28)
+
+(29)
+
+t (1,1)
+
+−t
+
+e
+
+(cid:90)
+(cid:90) ∞
+
+0
+
+(cid:88) i
+
+=1
+
+n
+
+(cid:26)
+
+(cid:27)
+Proof. The centering condition (28) can be checked easily using the explicit formulas (17) and
+(27) of the matrices. For (29), we compute that for any θ ∈ R,
+t (x,−1)ηα
+t (−1, x; θ)2
+(cid:26)
+−t − θ)2
+(e
+
+t (1, x; θ)2 + pα
+
+pα
+t (x,1)ηα
+
+max
+x∈{−1,1}
+
+(30)
+
+(cid:27)
+
+t (1,−1)
+
+,
+
+θ2
+t (−1,1)pα
+t (−1,−1)
+pα
+
+,
+
+.
+
+As this is the maximum of two quadratic functions in θ, its minimum is attained at the point
+∗
+θ
+
+where they intersect in the interval (0, e
+
+= max
+
+t (1,1)pα
+pα
+−t), namely at
+(cid:112)
+t (−1,−1)
+(1− α)pα
+
+−t(cid:112)
+αpα
+t (−1,−1) +
+
+e
+
+(cid:112)
+
+∗
+
+θ
+
+=
+
+αpα
+
+.
+
+(31)
+
+The ﬁrst equality in (29) is immediate, whereas for the inequality we compute
+
+(cid:112)
+
+(cid:112)
+
+−t
+t (−1,−1) +
+
+e
+
+≤
+
+αpα
+
+(et − 1)(
+
+(1− α)pα
+
+t (−1,−1) + (1− α)pα
+(et − 1)(αpα
+(cid:16)
+−t
+e
+−t)(α2 + (1− α)2)
+1− (1− e
+where both inequalities follow from the convexity of x (cid:55)→ x2.
+
+(et − 1)
+
+t (1,1))2
+
+=
+
+t (1,1))
+
+(cid:17) ≤ 1
+et − 1
+
+(32)
+
+,
+
+(cid:3)
+
+(cid:16)
+
+∀ x ∈ {−1,1}n,
+
+(cid:20) n(cid:88)
+t f (x) = −E
+
+The key technical ingredient in the proof of Theorem 1 is the following identity.
+Proposition 13. Fix n ∈ N, ααα = (α1, . . . , αn) ∈ (0,1)n, t ≥ 0 and θ1, . . . , θn ∈ R. Then, for every
+function f : {−1,1}n → X, where X is a vector space, we have
+
+(cid:17)
+(cid:128)αi
+i f (Xααα
+t )
+(33)
+t (i); θi
+}t≥0, it suﬃces to check the
+Proof. In view of (23) and the product structure of the process {Xααα
+claim for n = 1, namely that for every β ∈ (0,1), θ ∈ R and f : {−1,1} → X,
+t ; θ)(cid:128)βf (Xβ
+t )
+where the ﬁrst equality follows from the probabilistic representation (22). Taking into account
+that β(cid:128)βf (1) + (1− β)(cid:128)βf (−1) = 0, this amounts to the system of equations
+
+t (cid:128)βf (x) = E(cid:104)
+
+−t(cid:128)βf (x) = P β
+
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12) Xααα
+
+(cid:12)
+(cid:12)
+(cid:12) Xβ
+
+ηβ
+t (x, Xβ
+
+x(i), Xααα
+
+LαααP ααα
+
+0 = x
+
+0 = x
+
+(34)
+
+ηαi
+t
+
+(cid:21)
+
+(cid:105)
+
+i=1
+
+e
+
+,
+
+.
+
+t
+
+−t = pβ
+−t = − 1−β
+
+t (1,1; θ)− β
+t (−1,1)ηβ
+
+t (1,1)ηβ
+β pβ
+
+t (1,−1)ηβ
+
+t (1,−1; θ)
+
+1−β pβ
+
+e
+
+t (−1,−1)ηβ
+
+t (−1,1; θ) + pβ
+(cid:3)
+which can be easily veriﬁed by direct computation.
+Theorem 14. Fix p ∈ [1,2] and let (X,(cid:107)·(cid:107)X) be a normed space of Rademacher type p. Then, for any
+n ∈ N and ααα = (α1, . . . , αn) ∈ (0,1)n, every function f : {−1,1}n → X satisﬁes
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)αi
+
+dµααα(x) ≤(cid:16)
+
+t (−1,−1; θ)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f (x)−
+
+X dµααα(x).
+
+2πTp(X)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+i f (x)
+
+f dµααα
+
+(cid:17)p
+
+(cid:90)
+
+(cid:90)
+
+(35)
+
+(36)
+
+X
+
+{−1,1}n
+
+{−1,1}n
+
+∀ x ∈ {−1,1},
+
+
+
+
+
+
+e
+
+{−1,1}n
+
+(cid:90)
+
+Proof. Writing
+
+f (x)−
+
+f dµααα = P ααα
+
+0 f (x)− P ααα∞f (x) = −
+
+{−1,1}n
+
+8
+
+LαααP ααα
+
+t f (x) dt
+
+(37)
+
+
+
+(cid:90)
+and using Jensen’s inequality and Proposition 13, we see that for θ1(t), . . . , θn(t) ∈ R,
+
+
+
+
+
+
+
+
+1/p
+
+
+
+
+
+1/p
+
+
+
+
+
+
+1/p ≤
+
+
+(cid:90)
+
+
+
+
+(cid:17)
+
+(cid:128)αi
+i f (Xααα
+t )
+
+(cid:90) ∞
+
+t (i); θi(t)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:21)(cid:13)(cid:13)(cid:13)(cid:13)(cid:13)(cid:13)p
+
+x(i), Xααα
+
+dµααα(x)
+
+dµααα(x)
+
+dµααα(x)
+
+{−1,1}n
+
+{−1,1}n
+
+t f (x)
+
+f dµααα
+
+0 = x
+
+ηαi
+t
+
+{−1,1}n
+
+(cid:16)
+
+=
+
+X
+
+0
+
+dt
+
+X
+
+{−1,1}n
+
+(cid:90)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f (x)−
+
+(cid:90) ∞
+(cid:90)
+
+
+
+
+
+(cid:90) ∞
+(cid:13)
+(cid:13) n(cid:88)
+
+(cid:13)
+
+(cid:13)
+
+
+E
+
+≤
+
+0
+
+0
+
+i=1
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)
+(cid:20) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)E
+(cid:16)
+
+i=1
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)LαααP ααα
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12) Xααα
+
+
+
+
+
+1/p
+
+dt,
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+ηαi
+t
+
+Xααα
+0 (i), Xααα
+
+t (i); θi(t)
+
+(cid:128)αi
+i f (Xααα
+t )
+
+(cid:17)
+
+dt
+
+(38)
+
+where in the last expectation Xααα
+the chain, this expectation can be written as
+
+0 is distributed according to µααα. Now, by the reversibility of
+
+0
+which is precisely the desired estimate.
+
+Equipped with the biased Poincaré inequality of Theorem 14, we can conclude the proof.
+Proof of Theorem 1. Let X = (Rd,(cid:107) · (cid:107)X) be a d-dimensional normed space and suppose that
+f : {−1,1}n → X is a function such that
+∀ x, y ∈ {−1,1}n,
+(42)
+for some D ≥ 1. The conclusion of the theorem follows from [27] when d ≥ n so we shall
+assume that d < n. Let F : [−1,1]n → X be the multilinear extension of f given by (24). Then, F
+is clearly continuous as a polynomial and therefore, by Lemma 11, there exists a point z ∈ Cn
+such that F(z) = F(−z). As z has at least n− d coordinates equal to 1 in absolute value we shall
+
+ρ(x, y) ≤ (cid:107)f (x)− f (y)(cid:107)X ≤ Dρ(x, y)
+
+d
+
+9
+
+dt√
+et − 1
+
+,
+
+(41)
+
+(cid:3)
+
+X
+
+X
+
+i=1
+
+i f (x)
+
+X dµααα(x),
+
+(cid:17)
+
+(cid:16)
+
+(39)
+
+i f (x)
+
+dµααα(x)
+
+dµααα(x).
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:128)αi
+i f (x)
+
+X dµααα(x)
+
+y(i), x(i); θi(t)
+
+y(i), x(i); θi(t)
+
+y(i), x(i); θi(t)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+ηαi
+t
+Fixing x ∈ {−1,1}n, equation (28) asserts that each ηαi
+t (y(i), x(i); θi(t)) is a centered random
+t (x,·) is a product
+variable when y(i) is distributed according to pαi
+(cid:90)
+measure, the Rademacher type condition for sums of centered independent random vectors
+(cid:13)
+(cid:13)
+(cid:13)
+(see [33, Proposition 9.11]) yields the bound
+(cid:13)p
+≤(cid:16)
+≤(cid:16)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:88)
+(cid:18) (cid:88)
+
+(cid:17)(cid:12)(cid:12)(cid:12)p(cid:13)(cid:13)(cid:13)(cid:128)αi
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:17)(cid:12)(cid:12)(cid:12)2(cid:19)p/2(cid:13)(cid:13)(cid:13)(cid:128)αi
+
+(cid:17)
+(cid:17)(cid:12)(cid:12)(cid:12)ηαi
+(cid:16)
+(cid:17)(cid:12)(cid:12)(cid:12)ηαi
+
+t (x(i),·). Therefore, as pααα
+
+(cid:88)
+(cid:90)
+(cid:17)p
+(cid:17)p
+
+(cid:88) i
+
+y(i), x(i); θi(t)
+
+{−1,1}n
+n
+
+Xααα
+0 (i), Xααα
+
+y(i)∈{−1,1}
+
+t (i);θi(t)
+
+(cid:128)αi
+i f (x)
+
+y∈{−1,1}n
+
+y∈{−1,1}n
+
+(cid:128)αi
+i f (Xααα
+t )
+
+pααα
+t (x, y)
+
+pααα
+t (x, y)
+
+2Tp(X)
+
+2Tp(X)
+
+x(i), y(i)
+
+x(i), y(i)
+
+{−1,1}n
+
+{−1,1}n
+
+(cid:90)
+
+ηαi
+t
+
+ηαi
+t
+
+pαi
+t
+
+(cid:16)
+
+(cid:16)
+
+(cid:16)
+
+n
+
+=1
+
+(cid:16)
+
+pαi
+t
+
+t
+
+t
+
+i=1
+
+{−1,1}n
+
+y(i)∈{−1,1}
+
+(cid:88) i
+
+=1
+
+(40)
+where we also used that p ≤ 2. Now, choosing the θi(t) which minimize the quantity in the
+left-hand side of (29) with bias αi, and combining (38), (39) and (40), we conclude that
+
+
+(cid:90)
+
+
+
+
+
+{−1,1}n
+
+(cid:90)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f (x)−
+
+f dµααα
+
+dµααα(x)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:90) ∞
+ n(cid:88)
+
+
+
+
+
+X
+
+i=1
+
+(cid:90)
+
+
+
+
+
+
+1/p
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)αi
+
+{−1,1}n
+≤ 2Tp(X)
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+
+
+
+
+
+1/p
+
+{−1,1}n
+
+i f (x)
+
+X dµααα(x)
+
+(cid:16)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+E
+
+(cid:17)
+
+(cid:90)
+
+=
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:88)
+
+X
+
+assume without loss of generality that |z(d + 1)| = . . . = |z(n)| = 1 and consider the functions
+h+, h− : {−1,1}d → X which are deﬁned as
+(cid:16) 1+z(1)
+h±(x) = f
+
+(cid:16)± x(1), . . . ,±x(d),±z(d + 1), . . . ,±z(n)
+(cid:17)
+
+(cid:17) ∈ (0,1)d and notice that, by the multilin-
+(cid:90)
+
+∀ x ∈ {−1,1}d,
+(cid:90)
+
+Consider also the bias vector αααz =
+earity of F, we have the identity
+
+, . . . , 1+z(d)
+
+(43)
+
+2
+
+2
+
+.
+
+h−(x) dµαααz(x).
+
+X dµαααz(x)
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+1+z(i)
+
+2
+
+i
+
+h−(x)
+
+X dµαααz(x).
+
+=1
+
+Now, in view of the lower Lipschitz condition (42), we clearly have
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)h+(x)−h−(x)
+(cid:13)X =
+(cid:90)
+(cid:13)
+(cid:13)
+for every x ∈ {−1,1}d. On the other hand, for a ﬁxed i ∈ {1, . . . , d} and β = 1+z(i)
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)β
+(cid:13)p
+X dµβ(x(i)) = β(cid:107)(cid:128)β
+(cid:16)
+β(1− β)p + (1− β)βp(cid:17)(cid:13)(cid:13)(cid:13)h+(x(1), . . . ,1, . . . , x(d))− h+(x(1), . . . ,−1, . . . , x(d))
+
+(cid:16)−x(1), . . . ,−x(d),−z(d+1), . . . ,−z(n)
+(cid:17)(cid:13)(cid:13)(cid:13)X
+
+i h+(x(1), . . . ,1, . . . , x(d))(cid:107)p
+
+X + (1− β)(cid:107)(cid:128)β
+
+i h+(x(1), . . . ,−1, . . . , x(d))(cid:107)p
+
+where in the last equality we used that p ≤ 2 along with the upper Lipschitz condition (42).
+The same bound also holds for h−. Integrating the last two inequalities and combining them
+with (45), we deduce that
+
+≤ Dp
+2p ,
+
+, we have
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+i h+(x)
+
+{−1,1}
+
+=
+
+X
+
+2
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)h−(x)− F(−z)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)
+(cid:13)p
+
+h+(x)
+
+1+z(i)
+
+X +
+
+2
+
+i
+
+d
+
+X +
+
+{−1,1}d
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:88) i
+
+h+(x) dµαααz(x) = F(z) = F(−z) =
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)h+(x)− h−(x)
+(cid:13)p
+(cid:90)
+≤ 2p−1
+≤ 22p−1(cid:16)
+(cid:16)
+(cid:13)
+(cid:13)
+(cid:13)f
+
+(cid:13)
+(cid:13)
+(cid:13)h+(x)− F(z)
+(cid:90)
+(cid:17)p
+
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)
+(cid:17)−f
+
+x(1), . . . , x(d), z(d+1), . . . , z(n)
+
+X dµαααz(x)
+
+πTp(X)
+
+{−1,1}d
+
+{−1,1}d
+Therefore, by the triangle inequality and Theorem 14 we get
+
+{−1,1}d
+
+(cid:90)
+
+{−1,1}d
+
+np ≤ (2πTp(X))pdDp,
+
+(44)
+
+(45)
+
+≥ n
+
+(46)
+(cid:3)
+
+(47)
+
+which completes the proof of the theorem.
+Remark 15. The identity of Proposition 13 in the case of the uniform measure σn (which was ob-
+tained in [27]) is simpler. Let ξ1(t), . . . , ξn(t) be i.i.d. random variables distributed according to µβ(t),
+2 . Then, for any point x ∈ {−1,1}n, the corresponding unbiased process {Xt(i)}t≥0
+where β(t) = 1+e
+with X0 = x has distribution equal to x(i)ξi(t) at time t. Thus applying formula (33) with αi = 1
+2
+and θi(t) = e
+
+−t
+2 , we recover the usual identity
+
+−t
+
+(cid:20) n(cid:88)
+LPtf (x) = −E
+
+∀ x ∈ {−1,1}n,
+
+ξi(t)− e
+−t
+et − e
+−t
+where xξ(t) = (x(1)ξ1(t), . . . , x(n)ξn(t)), as was proven in [27].
+4. Proof of Theorem 2
+
+i=1
+
+(cid:16)
+
+(cid:17)(cid:21)
+
+· (cid:128)if
+
+xξ(t)
+
+,
+
+n
+
+=1
+
+(48)
+
+(cid:88) i
+
+Recall that a normed space (X,(cid:107) · (cid:107)X) has cotype q ∈ [2,∞) with constant C ∈ (0,∞) if for
+(cid:13)
+(cid:13) n(cid:88)
+every n ∈ N and v1, . . . , vn ∈ X, we have
+(cid:13)
+(cid:13)
+
+(cid:107)vi(cid:107)q
+X.
+We say that X has ﬁnite cotype if it has cotype q for some q ∈ [2,∞).
+
+dσn(x) ≥ 1
+Cq
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)q
+
+{−1,1}n
+
+(cid:90)
+
+xivi
+
+i=1
+
+X
+
+10
+
+δi(cid:128)α
+i f
+
+Lp(µn
+
+α;X)
+
+dσn(δ)
+
+.
+
+(49)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+
+
+
+
+
+
+1/p
+
+
+
+
+
+
+1/p
+
+.
+
+δi(cid:128)α
+i f
+
+dσn(δ)
+
+Lp(µn
+
+α;X)
+
+(cid:82)
+
+≤ 2n(cid:107)f (cid:107)Lp(µααα;X),
+
+(50)
+
+(51)
+
+(52)
+
+The proof of Theorem 2 is similar to the arguments of [27, 16] using as input the new iden-
+}t≥0. In view of that, we shall omit
+tity (33) for the time derivative of the biased semigroup {P ααα
+various simple details and we will be less attentive with the values of the implicit constants.
+We start by proving the (weaker) biased Pisier inequality, in which the Orlicz norm on the
+left hand side of the conclusions of Theorem 2 is replaced by an Lp norm.
+Theorem 16. For every α ∈ (0,1), there exists Kα ∈ (0,∞) such that the following holds when
+p ∈ [1,∞). For any normed space (X,(cid:107)·(cid:107)X) and any n ∈ N, every function f : {−1,1}n → X satisﬁes
+
+t
+
+where the last inequality follows from the deﬁnitions of (cid:128)α
+∀ t ≥ 0,
+
+−tL
+
+≤
+
+∞
+
+α f
+α
+α
+
+i . Therefore,
+(2nt)m
+
+(cid:107)f (cid:107)Lp(µααα;X) = e2nt(cid:107)f (cid:107)Lp(µααα;X).
+
+m!
+
+Since P ααα
+
+t = etL
+
+t f with t = 1
+
+n implies that
+
+1/nf
+
+
+
+
+
+
+
+
+
+
+(cid:90) ∞
+
+Similarly to (38) and (39), we thus have
+
+(cid:13)
+(cid:13)
+(cid:13)Lp(µααα;X).
+(cid:88)
+pααα
+t (x, y)
+y∈{−1,1}n
+t (x,·) is a product measure, the centering condition (28) gives
+Fix t ≥ 0 and x ∈ {−1,1}n. Since pααα
+(cid:88)
+
+(cid:107)f (cid:107)Lp(µααα;X) ≤ e2(cid:13)(cid:13)(cid:13)P ααα
+(cid:90)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+≤ 2p
+
+≤ e2
+(cid:88)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:17)
+
+
+
+
+
+
+
+
+1/p
+
+y(i), x(i); θi(t)
+
+y∈{−1,1}n
+
+pααα
+t (x, y)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:128)α
+i f (x)
+
+dµααα(x)
+
+{−1,1}n
+
+(cid:90)
+
+(53)
+
+(54)
+
+(cid:17)
+
+(cid:16)
+
+y(i), x(i); θi(t)
+
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+
+dσn(δ).
+
+dt
+
+i=1
+
+i=1
+
+1/n
+
+δi
+
+X
+
+i f (x)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+y∈{−1,1}n
+
+{−1,1}n
+−t
+2 and observe that by the contraction principle [33, Theorem 4.4],
+
+i=1
+
+X
+
+t
+
+To prove (49), set θi(t) = e
+we can further bound this quantity by
+
+2p (cid:88)
+
+y∈{−1,1}n
+
+pααα
+t (x, y)
+
+(cid:90)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+{−1,1}n
+≤ 2p max
+χ,ψ∈{−1,1}
+
+i=1
+
+δi
+
+(cid:16)
+(cid:12)
+(cid:12)
+(cid:12)ηα
+(cid:16)
+(cid:12)
+(cid:12)
+(cid:12)ηα
+
+t
+
+t
+
+−t
+y(i), x(i); e
+2
+
+(cid:90)
+
+(cid:17)(cid:12)(cid:12)(cid:12)p
+
+−t
+ψ, χ; e
+2
+
+11
+
+i f (x)
+
+dσn(δ)
+
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+X
+
+{−1,1}n
+
+δi(cid:128)α
+
+i f (x)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(55)
+
+dσn(δ).
+
+=0
+
+∞
+
+i=1
+
+i=1
+
+i f
+
+{−1,1}n
+
+{−1,1}n
+
+y(i), x(i); θi(t)
+
+(cid:88) m
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+≤ Kp,α(X)
+(23)≤ n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)Lm
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Lp(µn
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Lp(µn
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Lαααf
+(cid:13)Lp(µααα;X)
+(cid:13)
+(cid:13)
+(cid:13)Lp(µααα;X)
+
+
+(cid:90)
+
+
+
+
+
+≤ Kα(log n + 1)
+
+(cid:90)
+
+
+
+
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Lp(µααα;X)
+(cid:13)(cid:128)α
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)e
+(cid:13)Lp(µααα;X)
+≤
+(cid:13)
+(cid:107)f (cid:107)Lp(µααα;X) ≤ e2(cid:13)(cid:13)(cid:13)P ααα
+(cid:13)
+α for t ≥ 0, this inequality applied to P ααα
+(cid:13)Lp(µααα;X).
+1/nf
+(cid:16)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+(cid:88) m
+
+(cid:12)
+(cid:12)
+(cid:12)ηα
+
+pααα
+t (x, y)
+
+(cid:128)α
+i f (x)
+
+{−1,1}n
+
+f dµn
+α
+
+f dµn
+α
+
+tm
+m!
+
+(cid:90)
+
+ηα
+t
+
+ηα
+t
+
+(cid:16)
+
+α;X)
+
+α;X)
+
+α f
+α
+α
+
+i=1
+
+=0
+
+X
+
+α
+α
+
+(cid:90)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f −
+
+{−1,1}n
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f −
+
+If additionally X is assumed to be of ﬁnite cotype, then there exists Kp,α(X) such that
+
+Proof. Let ααα = (α, . . . , α) and without loss of generality assume that
+proving the general inequality (49). Notice that, by convexity,
+
+f dµααα = 0. We start by
+
+(cid:16)
+
+i f (x)
+
+{−1,1}n
+
+(cid:33)
+
+i=1
+
+(56)
+
+(57)
+
+t
+
+(cid:16)
+
+δi(cid:128)if
+
+Lp(µααα;X)
+
+{−1,1}n
+
+i=1
+
+pααα
+t (x, y)
+
+δi
+
+t
+
+pααα
+t (x, y)
+
+δi
+
+t
+
+dt
+t
+
++
+
+1/n
+
+1
+
+0
+
+{−1,1}2n
+
+dσn(δ)
+
+,
+
+−t dt
+
+e
+
+·
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+max
+
+χ,ψ∈{−1,1}
+
+−t
+ψ, χ; e
+2
+
+(cid:32)(cid:90) 1
+
+dσn(δ)dµααα(x)
+
+
+
+
+
+
+
+1/p
+
+−t
+y(i), x(i); e
+2
+
+(cid:16)
+(cid:12)
+(cid:12)
+(cid:12)ηα
+(cid:90) ∞
+
+
+
+
+
+ 1
+t ,
+−t,
+e
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+and thus combining all the above we get
+
+which readily concludes the proof of (49).
+
+It is now elementary to check that we have
+
+For the proof of (50), we combine (38) and (39) with (54) to get
+
+(cid:107)f (cid:107)Lp(µααα;X) (cid:46)α
+
+(cid:90) ∞
+(cid:90)
+
+
+
+
+
+
+
+
+y∈{−1,1}n
+
+(cid:88)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:12)
+(cid:13)
+(cid:12)
+(cid:13)
+(cid:12)ηα
+(cid:88)
+(cid:88)
+
+y∈{−1,1}I(x)
+
+for t ∈ (0,1)
+for t ≥ 1
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+
+
+
+
+
+
+
+
+1/p
+(cid:107)f (cid:107)Lp(µααα;X) ≤ 2
+dt.
+(cid:90)
+Fix x ∈ {−1,1}n and t ≥ 0. Denoting by I(x) = {i : x(i) = 1}, the inner term is bounded above by
+(cid:88)
+
+(cid:17)(cid:12)(cid:12)(cid:12) (cid:46)α
+
+(cid:90)
+
+
+
+
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:12)
+(cid:13)
+(cid:12)
+(cid:13)
+(cid:12)ηα
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+(cid:13)
+(cid:13)(cid:88)
+(cid:16)
+(cid:12)
+(cid:13)
+(cid:12)
+(cid:13)
+(cid:12)ηα
+(cid:13)
+(cid:13)(cid:88)
+(cid:16)
+(cid:12)
+(cid:13)
+(cid:12)
+(cid:13)
+(cid:12)ηα
+y(i),−1; e
+δi
+t (x,·) and δ is a uniformly random sign,
+When y ∈ {−1,1}I(x) is distributed according to pααα
+2 )|, i ∈ I(x), are independent and identically distributed.
+the random variables δi|ηα
+(cid:90)
+(cid:13)
+(cid:13)(cid:88)
+Therefore, standard comparison principles going back to works of Maurey and Pisier (see,
+(cid:16)
+(cid:12)
+e.g., [33, Proposition 9.14]) show that if X has cotype q < ∞ and r > max{p, q}, then
+(cid:13)
+(cid:12)
+(cid:13)
+(cid:12)ηα
+(cid:16)
+(cid:16)
+(cid:17)(cid:12)(cid:12)(cid:12)ηα
+(cid:17)(cid:12)(cid:12)(cid:12)ηα
+
+(cid:88)
+(cid:18) (cid:88)
+(cid:18) (cid:88)
+
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+(cid:17)(cid:12)(cid:12)(cid:12)r(cid:19)p/r(cid:90)
+(cid:17)(cid:12)(cid:12)(cid:12)r(cid:19)1/r
+
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+(cid:17)(cid:12)(cid:12)(cid:12)(cid:128)α
+
+−t
+2
+
+It is again elementary to show that
+
+y∈{−1,1}n
+≤ 2p−1
+
+−t
+y(i), x(i); e
+2
+
+−t
+y(i),1; e
+2
+
+−t
+y(i),1; e
+2
+
+−t
+1, ψ; e
+2
+
+−t
+ψ,1; e
+2
+
+y∈{−1,1}I(x)c
+
+t (y(i),1; e
+
+y∈{−1,1}I(x)
+
+(cid:90)
+(cid:90)
+
+δi(cid:128)α
+
+i f (x)
+
+dσI(x)c(δ).
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
++ 2p−1
+
+−t
+χ, ψ; e
+2
+
+pα
+t
+
+i f (x)
+
+dσn(δ)
+
+−t
+ψ, χ; e
+2
+
+t
+
+i f (x)
+
+dσI(x)(δ)
+
+i f (x)
+
+dσI(x)(δ)
+
+dσI(x)(δ).
+
+{−1,1}I(x)c
+
+δi
+
+t
+
+i∈I(x)
+
+δi
+
+t
+
+i∈I(x)
+
+pααα
+t (x, y)
+
+pααα
+t (x, y)
+
+(cid:46)r,X
+
+pα
+t
+
+ψ∈{−1,1}
+
+t
+
+i(cid:60)I(x)
+
+pααα
+t (x, y)
+
+{−1,1}I(x)
+
+{−1,1}I(x)
+
+{−1,1}I(x)
+
+−t
+
+t
+
+i∈I(x)
+
+(cid:13)
+(cid:13)(cid:88)
+(cid:13)
+(cid:13)
+
+
+
+
+
+
+ 1
+t1− 1
+−t,
+e
+
+r
+
+,
+
+for t ∈ (0,1)
+for t ≥ 1
+
+.
+
+(59)
+
+(60)
+
+i f (x)
+
+(58)
+
+max
+χ∈{−1,1}
+
+ψ∈{−1,1}
+
+(cid:16)
+
+i=1
+
+In view of the convergence of the integrals
+
+combining (59), the corresponding estimate on I(x)c and (58), we ﬁnally get
+
+(cid:107)f (cid:107)Lp(µααα;X) (cid:46)r,α,X
+
+δi(cid:128)α
+
+i f (x)
+
+δi(cid:128)α
+
+i f (x)
+
+dσn(δ) dµααα(x)
+
+Now, if F, G are two independent centered X-valued random vectors, then
+
+E(cid:107)F + G(cid:107)p
+
+X
+
+≥ max
+
+X,EG(cid:107)EF[F] + G(cid:107)p
+
+X
+
+= max
+
+X,E(cid:107)G(cid:107)p
+
+X
+
+12
+
+(cid:16)
+
+(cid:90) ∞
+
+e
+
+1
+
++
+
+(cid:46)r,α
+
+−t dt (cid:46)r 1,
+(cid:13)
+(cid:13)
+(cid:13)(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
++
+
+X
+
+i(cid:60)I(x)
+
+(cid:111)
+
+(cid:90)
+
+
+
+
+
+
+
+
+
+
+{−1,1}n
+
+r
+
+0
+
+dt
+t1− 1
+
+(cid:90) 1
+(cid:90)
+(cid:13)
+(cid:13)(cid:88)
+(cid:13)
+(cid:13)
+(cid:110)EF(cid:107)F + EG[G](cid:107)p
+
+{−1,1}n
+
+i∈I(x)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:110)E(cid:107)F(cid:107)p
+
+X
+
+
+
+
+
+
+
+
+1/p
+
+(61)
+
+.
+
+(62)
+
+(cid:111)
+
+.
+
+
+
+
+
+
+1/p
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+δi(cid:128)α
+
+i f (x)
+
+dσn(δ) dµααα(x)
+
+
+(cid:90)
+
+
+
+
+
+
+(cid:46)
+
+{−1,1}n
+
+δi(cid:128)α
+
+i f (x)
+
+Lp(µααα;X)
+
+
+
+
+
+
+
+1/p
+
+dσn(δ)
+
+(63)
+
+(cid:3)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+(cid:18)
+
+Therefore,
+
+
+(cid:90)
+
+
+
+
+
+{−1,1}n
+
+(cid:90)
+
+{−1,1}n
+
+(cid:13)
+(cid:13)(cid:88)
+(cid:13)
+(cid:13)
+
+i∈I(x)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+δi(cid:128)α
+
+i f (x)
+
+(cid:13)
+(cid:13)(cid:88)
+(cid:13)
+(cid:13)
+
+i(cid:60)I(x)
+
++
+
+and this concludes the proof of the theorem.
+We now proceed to discuss the vector-valued Lp logarithmic Sobolev inequality of Theorem
+2. Recall that given a function f : (Ω, µ) → X, we deﬁne the Lp(log L)a Orlicz norm of f as
+
+(cid:40)
+
+(cid:90)
+
+(cid:19)
+
+(cid:41)
+dµ(ω) ≤ 1
+
+.
+
+(64)
+
+(cid:107)f (cid:107)Lp(log L)a(µ;X) = inf
+
+γ > 0 :
+
+(cid:107)f (ω)(cid:107)p
+γ p
+
+X
+
+loga
+
+Ω
+
+(cid:107)f (ω)(cid:107)p
+γ p
+
+X
+
+e +
+
+In the case of the unbiased cube, Theorem 2 was proven recently in [16] and the proof used as
+a black box the unbiased analogue of Theorem 16 which is due to [64, 27]. As the modiﬁca-
+tions which are required to derive Theorem 2 from Theorem 16 in the biased case are almost
+mechanical, we shall only oﬀer a high-level description of the proof.
+Sketch of the proof of Theorem 2. Given a scalar-valued function h : {−1,1}n → R, we denote by
+(cid:32) n(cid:88)
+Mh : {−1,1}n → R+ the asymmetric gradient of h, given by
+
+(65)
+(cid:82)
+where a+ = max{a,0} for a ∈ R. A combination of the triangle inequality with a technical result
+of Talagrand [67, Proposition 5.1] on the biased cube implies that if a vector-valued function
+f : {−1,1}n → X satisﬁes
+(cid:107)f (cid:107)
+
+∀ x ∈ {−1,1}n,
+
+α = 0, then
+
+(cid:33)1/2
+
+(cid:128)ih(x)2
++
+
+Mh(x) =
+
+f dµn
+
+(66)
+
+i=1
+
+,
+
+Lp(log L)p/2(µn
+
+α;X) (cid:46)p,α
+
+α;X).
+
+The second term can be controlled by the right hand side of (9) or (10) using the results of
+Theorem 16. For the ﬁrst term, we use the key pointwise inequality of [16], asserting that
+
+(cid:13)
+(cid:13)
+(cid:13)M(cid:107)f (cid:107)X
+
+(cid:90)
+
+
+
+
+
+2
+
+(cid:13)
+(cid:13)
+(cid:13)Lp(µn
+α;X) +(cid:107)f (cid:107)L1(µn
+(cid:13)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+δi(cid:128)if (x)
+
+{−1,1}n
+
+M(cid:107)f (cid:107)X(x) ≤ √
+i f (x) ∈(cid:110)
+
+(cid:128)α
+
+i=1
+
+(cid:111)
+2α(cid:128)if (x),2(1− α)(cid:128)if (x)
+
+
+
+
+
+
+1/p
+
+dσn(δ)
+
+X
+
+.
+
+(67)
+
+∀ x ∈ {−1,1}n,
+
+To further upper bound this by the square function where (cid:128)i is replaced by (cid:128)α
+
+i , observe that
+
+and thus the contraction principle and integration in x yield the desired conclusions.
+
+5. Proof of Theorem 4
+
+In this section we shall prove the equivalence of stable type and metric stable type for norms.
+The key ingredient in the proof is the following characterization of stable type (see, e.g., [33,
+Proposition 9.12 (iii)]) which goes back at least to [40].
+Lemma 17. A Banach space (X,(cid:107)·(cid:107)X) has stable type p ∈ [1,2) if and only if there exists a constant
+STp(X) ∈ (0,∞) such that for every n ∈ N and every vectors v1, . . . , vn ∈ X, we have
+
+(cid:90)
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+{−1,1}n
+
+xivi
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+dσn(x) ≤ STp(X)p(cid:13)(cid:13)(cid:13)(cid:16)(cid:107)v1(cid:107)X, . . . ,(cid:107)vn(cid:107)X
+
+(cid:17)(cid:13)(cid:13)(cid:13)p
+
+p,∞.
+(cid:96)n
+
+13
+
+(68)
+(cid:3)
+
+(69)
+
+Proof of Theorem 4. It is clear from Lemma 17 that any normed space with metric stable type
+p also has stable type p. For the converse implication, we treat the case p = 1 separately.
+Assuming that X has stable type 1, it follows from [59] that it also has nontrivial Rademacher
+type and thus (in view of [57]) ﬁnite cotype. Therefore, by the X-valued Pisier inequality with
+a dimension-free constant of [27], we get
+
+(cid:90)
+
+{−1,1}n
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)X dσn(x) ≤ 2
+(cid:13)f (x)− f (−x)
+
+(cid:90)
+(cid:90)
+
+{−1,1}n
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f (x)−
+(cid:90)
+
+(cid:90)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+{−1,1}n
+
+E
+
+i=1
+
+(cid:46)X
+
+{−1,1}n
+
+{−1,1}n
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)X
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)X
+
+f dσn
+
+dσn(x)
+
+δi(cid:128)if (x)
+
+dσn(δ)dσn(x).
+
+Applying Lemma 17 conditionally on x ∈ {−1,1}n, we can further bound this quantity as
+
+(cid:90)
+
+(cid:90)
+
+{−1,1}n
+
+{−1,1}n
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+E
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)X
+(cid:90)
+δi(cid:128)if (x)
+≤ ST1(X)
+
+dσn(δ)dσn(x)
+
+(cid:13)(cid:16)(cid:107)(cid:128)1f (x)(cid:107)X, . . . ,(cid:107)(cid:128)nf (x)(cid:107)X
+(cid:13)
+(cid:13)
+
+(cid:17)(cid:13)(cid:13)(cid:13)(cid:96)n
+
+1,∞ dσn(x)
+
+{−1,1}n
+
+(70)
+
+(71)
+
+−t
+
+and this proves the converse implication since dif (x) = (cid:107)(cid:128)if (x)(cid:107)X.
+While this proof extends to all values of p, in the case p > 1 we present a more cumbersome
+argument which avoids the X-valued Pisier inequality and thus gives better dependence on
+parameters of X. For t ≥ 0, let ξ1(t), . . . , ξn(t) be i.i.d. random variables distributed according
+to µβ(t), where β(t) = 1+e
+. Then, it follows from the semigroup
+
+(cid:90)
+
+argument leading to (38) along with identity (47) of [27] and Jensen’s inequality that
+
+
+
+
+2 , and denote by ηi(t) = ξi(t)−e
+et−e
+(cid:90)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)f (x)− f (−x)
+(cid:13)f (x)−
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+
+
+(cid:90)
+
+
+
+
+
+
+
+
+1/p ≤ 2
+(cid:90) ∞
+≤ 2
+
+
+
+
+
+
+1/p
+
+
+
+
+
+1/p
+
+(72)
+
+dt
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+
+(cid:90)
+
+
+
+
+
+ηi(t)(cid:128)if (x)
+
+X dσn(x)
+
+dσn(x)
+
+dσn(x)
+
+{−1,1}n
+
+{−1,1}n
+
+{−1,1}n
+
+f dσn
+
+−t
+−t
+
+E
+
+X
+
+0
+
+{−1,1}n
+
+Fixing x ∈ {−1,1}n, the independent random vectors η1(t)(cid:128)1f (x), . . . , ηn(t)(cid:128)nf (x) are centered.
+(cid:90) ∞
+Thus, by standard symmetrization estimates, we can further bound the last term by
+
+i=1
+
+2
+
+0
+
+E
+
+{−1,1}n
+
+ηi(t)(cid:128)if (x)
+
+dσn(x)
+
+dt
+
+{−1,1}n
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+E
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+dσn(x)
+
+δiηi(t)(cid:128)if (x)
+
+
+
+
+
+
+1/p
+
+(73)
+
+dt,
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+
+
+
+
+
+1/p
+
+(cid:90) ∞
+(cid:90)
+
+
+
+
+
+0
+
+≤ 4
+
+where the expectation on the right hand side is with respect to (δi, ηi(t)), where the δi are
+uniformly random signs, independent of the ηi(t). Therefore, conditioning ﬁrst on the values
+of η1(t), . . . , ηn(t) and using Lemma 17 for the integrand, we get
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+X
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+≤ STp(X)pE
+
+i=1
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Xei
+(cid:13)(cid:128)if (x)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+p,∞
+(cid:96)n
+
+ηi(t)
+
+δiηi(t)(cid:128)if (x)
+
+,
+
+(74)
+
+where {e1, . . . , en} is the standard basis of Rn. It is well-known that, since p > 1, (cid:96)n
+p,∞ is isomor-
+phic to a normed space up to constants depending only on p. Moreover, it has ﬁnite cotype
+with a constant independent of n (for instance because it can be realized as a real interpola-
+tion space between (cid:96)n
+2, see [11, Section 5.3]). Therefore, using again the comparison
+
+1 and (cid:96)n
+
+14
+
+
+(cid:90)
+
+
+
+
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+
+i=1
+
+E
+
+principle [33, Proposition 9.14], we have
+
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+
+i=1
+
+E
+
+ηi(t)
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)if (x)
+(cid:13)Xei
+
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:13)
+(cid:13)
+(cid:13) n(cid:88)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)Xei
+(cid:13)
+(cid:13)p
+(cid:46)p (cid:107)η1(t)(cid:107)p
+(cid:13)(cid:16)(cid:107)(cid:128)1f (x)(cid:107)X, . . . ,(cid:107)(cid:128)nf (x)(cid:107)X
+(cid:13)
+(cid:13)
+= (cid:107)η1(t)(cid:107)p
+is the cotype of (cid:96)n
+
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)if (x)
+
+p,∞
+(cid:96)n
+
+p,∞
+(cid:96)n
+
+i=1
+
+δi
+
+E
+
+Lr
+
+Lr
+
+(cid:17)(cid:13)(cid:13)(cid:13)p
+
+p,∞
+(cid:96)n
+
+(cid:48)
+
+(cid:48)
+
+, p}, where r
+
+for any r > max{r
+p,∞. Combining all the above along with the fact
+that t (cid:55)→ (cid:107)η1(t)(cid:107)Lr is integrable for any r < ∞, we conclude the proof. It is worth emphasizing
+that this proof shows additionally that the metric stable type constant of X is proportional to
+(cid:3)
+the parameter STp(X) of (69) up to constants depending only on p, provided that p > 1.
+
+Finally, we present the simple proof of the distortion bound (16).
+
+Proof of Proposition 6. Suppose that (M, dM) has metric stable type p with constant S and sup-
+pose that a function f : {−1,1}n → M satisﬁes
+
+for some constants s > 0 and D ≥ 1. Combined with the stable type assumption, this gives
+
+sp(cid:107)w(cid:107)p
+
+(cid:96)n
+1
+
+(76)≤
+
+dM
+
+{−1,1}n
+
+(cid:90)
+
+∀ x, y ∈ {−1,1}n,
+
+(cid:16)
+(cid:17)p
+f (x), f (−x)
+(76)≤ (sSD)p
+
+f (x), f (y)
+
+sρw(x, y) ≤ dM
+(cid:90)
+
+dσn(x) ≤ Sp
+(cid:90)
+
+(cid:13)(cid:16)
+(cid:13)
+(cid:13)
+(cid:107)(w1, . . . , wn)(cid:107)p
+
+{−1,1}n
+
+{−1,1}n
+
+(cid:16)
+
+(cid:17) ≤ sDρw(x, y)
+(cid:17)(cid:13)(cid:13)(cid:13)p
+
+p,∞ dσn(x)
+(cid:96)n
+
+d1f (x), . . . , dnf (x)
+p,∞ dσn(x) = (sSD)p(cid:107)w(cid:107)p
+p,∞.
+(cid:96)n
+
+(cid:96)n
+
+(75)
+
+(76)
+
+(77)
+
+(cid:3)
+
+Rearranging gives the desired lower bound (16) for the distortion D.
+
+6. Discussion and open problems
+
+1. The proof of Theorem 1 in fact implies a Poincaré-type inequality for restrictions of functions
+f : {−1,1}n → X if dim(X) < n, which in turn yields the reﬁned distortion lower bounds. An
+inspection of the argument reveals that for every such f there exists a subset σ ⊆ {1, . . . , n} with
+(cid:90)
+|σ| ≤ dim(X), a point w ∈ {−1,1}σ c and a bias vector ααα = (αi)i∈σ ∈ (0,1)σ such that
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:13)
+(cid:13)
+(cid:13)f (x, w)−f (−x,−w)
+≤ 22p−1(cid:16)
+
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)αi
+i f (−x,−w)
+
+(cid:17)p(cid:88)
+
+(cid:13)
+(cid:13)
+(cid:13)(cid:128)αi
+
+X dµααα(x)
+
+i f (x, w)
+
+πTp(X)
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+(cid:13)
+(cid:13)
+(cid:13)p
+
+{−1,1}σ
+
+(cid:90)
+
+(78)
+
+X dµααα(x).
+
+X +
+
+i∈σ
+
+{−1,1}σ
+
+2. Such reﬁnements of Poincaré-type inequalities for topological reasons had not been ex-
+ploited since Oleszkiewicz’s original work [56]. The last decades have seen the development of
+many metric inequalities on graphs which yield nonembeddability results into normed spaces.
+We believe that investigating whether the distortion estimates which one obtains this way can
+be further improved assuming upper bounds for the dimension of the target space is a very
+worthwhile research program. As examples, we mention the nonembeddability of graphs with
+large girth into uniformly smooth spaces [39, 51], of (cid:96)∞-grids into spaces of ﬁnite cotype [45]
+and of trees [12, 36] and diamond graphs [31, 23] into uniformly convex spaces.
+3. The results of [27] in fact imply that any Lipschitz embedding of {−1,1}n into a normed space
+−1n1−1/p.
+of Rademacher type p incurs p-average distortion at least a constant multiple of Tp(X)
+It would be interesting to understand whether the bound of Theorem 1 can be extended to
+average distortion embeddings beyond bi-Lipschitz ones.
+4. The Poincaré inequality (78) implies that any f : {−1,1}n → X = (Rd,(cid:107)·(cid:107)X) satisﬁes
+
+sup
+
+(x,y): ρ(x,y)=n
+
+n
+
+(cid:107)f (x)− f (y)(cid:107)X
+
+sup
+
+(x,y): ρ(x,y)=1
+
+15
+
+(cid:107)f (x)− f (y)(cid:107)X (cid:38)
+
+n
+
+Tp(X)d1/p ,
+
+(79)
+
+(80)
+
+(81)
+
+(cid:19)
+p , where p ∈ [1,2], given by
+xi
+(cid:12)p(cid:33)1/p
+(cid:12)
+(cid:12)
+(cid:12)
+
+= d1/p
+
+(cid:88) i
+
+∈Id
+
+xi
+
+d . Then, the mapping f : {−1,1}n → (cid:96)d
+∀ x ∈ {−1,1}n,
+xi, . . . ,
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)
+(cid:13)f (x)− f (y)
+(cid:13)(cid:96)d
+
+(cid:18)(cid:88)
+(cid:32) d(cid:88)
+
+(cid:12)
+(cid:12)(cid:88)
+(cid:12)
+(cid:12)
+
+f (x) def=
+
+= inf
+
+i∈I1
+
+p
+
+x∈{−1,1}n
+
+i∈Ik
+
+k=1
+
+provided that d < n. This is stronger than the lower bound of Theorem 1 as it implies that f
+incurs large distortion only on speciﬁc pairs of points, namely those which are either antipodal
+or connected by an edge. Moreover though, (79) is sharp for any value of d and p. Indeed,
+assume without loss of generality that n
+d is an odd integer and consider a partition I1, . . . , Id of
+{1, . . . , n} in d parts of size n
+
+satisﬁes
+
+inf
+
+(x,y): ρ(x,y)=n
+
+and (cid:107)f (x)− f (y)(cid:107)
+5. The functional inequality (78) in fact implies that if θ ∈ (0,1), then the bi-Lipschitz distor-
+tion of the θ-snowﬂake of {−1,1}n into a ﬁnite dimensional normed space X satisﬁes
+
+= 1 when ρ(x, y) = 1.
+
+(cid:96)d
+p
+
+(cid:16){−1,1}n, ρθ(cid:17) (cid:38)
+
+cX
+
+nθ
+
+Tp(X)min{n,dim(X)}1/p .
+
+(82)
+
+6. As the reasons behind the impossibility of dimension reduction of Theorem 1 are partly
+topological, it is natural to ask in what other settings can one deduce similar conclusions. For
+instance, do d-dimensional manifolds of nonpositive or nonnegative curvature (which have
+Enﬂo type 2, see [55]) admit the same distortion bounds as normed spaces of type 2?
+7. In this paper we extended the semigroup machinery developed in [27] to the biased cube,
+driven by the geometric application obtained in Theorem 1. As an aside, this led to biased
+versions of the vector-valued Poincaré and logarithmic Sobolev inequalities of [27, 16]. The
+same reasoning also yields biased extensions of the vector-valued versions of Talagrand’s in-
+ﬂuence inequality [68] which were studied in [17] for the uniform probability measure on the
+hypercube. Moreover, combining the biased semigroup machinery with the arguments of [10,
+Section 2.5], one can derive biased versions of the isoperimetric-type inequalities of Eldan and
+Gross [18]. As these extensions are mostly mechanical given the material of this paper and in
+lack of a speciﬁc application which may follow from them, we omit them.
+
+References
+
+[1] Alexandr Andoni, Moses S. Charikar, Ofer Neiman, and Huy L. Nguyen. Near linear lower bound for dimen-
+sion reduction in (cid:96)1. In 2011 IEEE 52nd Annual Symposium on Foundations of Computer Science—FOCS 2011,
+pages 315–323. IEEE Computer Soc., Los Alamitos, CA, 2011.
+
+[2] Alexandr Andoni, Piotr Indyk, and Ilya Razenshteyn. Approximate nearest neighbor search in high dimen-
+sions. In Proceedings of the International Congress of Mathematicians—Rio de Janeiro 2018. Vol. IV. Invited lec-
+tures, pages 3287–3318. World Sci. Publ., Hackensack, NJ, 2018.
+
+[3] Juan Arias-de-Reyna and Luis Rodríguez-Piazza. Finite metric spaces needing high dimension for Lipschitz
+
+embeddings in Banach spaces. Israel J. Math., 79(1):103–111, 1992.
+
+[4] Keith Ball. The Ribe programme. Astérisque, (352):Exp. No. 1047, viii, 147–159, 2013. Séminaire Bourbaki.
+
+Vol. 2011/2012. Exposés 1043–1058.
+
+[5] Keith Ball, Eric A. Carlen, and Elliott H. Lieb. Sharp uniform convexity and smoothness inequalities for trace
+
+norms. Invent. Math., 115(3):463–482, 1994.
+
+[6] Imre Bárány and Victor S. Grinberg. On some combinatorial questions in ﬁnite-dimensional spaces. Linear
+
+Algebra Appl., 41:1–9, 1981.
+
+[7] Yair Bartal, Lee-Ad Gottlieb, and Ofer Neiman. On the impossibility of dimension reduction for doubling
+
+subsets of (cid:96)p. SIAM J. Discrete Math., 29(3):1207–1222, 2015.
+
+[8] Yair Bartal and Manor Mendel. Dimension reduction for ultrametrics. In Proceedings of the Fifteenth Annual
+
+ACM-SIAM Symposium on Discrete Algorithms, pages 664–665. ACM, New York, 2004.
+
+[9] Florent Baudier, Krzysztof Swieçicki, and Andrew Swift. No dimension reduction for doubling subsets of (cid:96)q
+
+when q > 2 revisited. J. Math. Anal. Appl., 504(2):Paper No. 125407, 18, 2021.
+
+16
+
+[10] David Beltran, Paata Ivanisvili, and José Madrid. On sharp isoperimetric inequalities on the hypercube.
+
+Preprint available at https://arxiv.org/abs/2303.06738, 2023.
+
+[11] Jöran Bergh and Jörgen Löfström. Interpolation spaces. An introduction, volume No. 223 of Grundlehren der
+
+Mathematischen Wissenschaften. Springer-Verlag, Berlin-New York, 1976.
+
+[12] Jean Bourgain. The metrical interpretation of superreﬂexivity in Banach spaces. Israel J. Math., 56(2):222–230,
+
+1986.
+
+[13] Jean Bourgain, Vitali Milman, and Haim Wolfson. On type of metric spaces. Trans. Amer. Math. Soc.,
+
+294(1):295–317, 1986.
+
+[14] Bo Brinkman and Moses Charikar. On the impossibility of dimension reduction in l1. J. ACM, 52(5):766–788,
+
+2005.
+
+[15] Bo Brinkman, Adriana Karagiozova, and James R. Lee. Vertex cuts, random walks, and dimension reduction in
+series-parallel graphs. In STOC’07—Proceedings of the 39th Annual ACM Symposium on Theory of Computing,
+pages 621–630. ACM, New York, 2007.
+
+[16] Dario Cordero-Erausquin and Alexandros Eskenazis. Discrete logarithmic Sobolev inequalities in Banach
+
+spaces. Preprint available at https://arxiv.org/abs/2304.03878, 2023.
+
+[17] Dario Cordero-Erausquin and Alexandros Eskenazis. Talagrand’s inﬂuence inequality revisited. Anal. PDE,
+
+16(2):571–612, 2023.
+
+[18] Ronen Eldan and Renan Gross. Concentration on the Boolean hypercube via pathwise stochastic analysis.
+
+Invent. Math., 230(3):935–994, 2022.
+
+[19] Per Enﬂo. On a problem of Smirnov. Ark. Mat., 8:107–109, 1969.
+[20] Per Enﬂo. On the nonexistence of uniform homeomorphisms between Lp-spaces. Ark. Mat., 8:103–105, 1969.
+[21] Per Enﬂo. On inﬁnite-dimensional topological groups. In Séminaire sur la Géométrie des Espaces de Banach
+
+(1977–1978), pages Exp. No. 10–11, 11. École Polytech., Palaiseau, 1978.
+
+[22] Alexandros Eskenazis. On Pisier’s inequality for UMD targets. Canad. Math. Bull., 64(2):282–291, 2021.
+[23] Alexandros Eskenazis, Manor Mendel, and Assaf Naor. Diamond convexity: a bifurcation in the Ribe program.
+
+Preprint, 2023.
+
+[24] Anupam Gupta, Robert Krauthgamer, and James R. Lee. Bounded geometries, fractals, and low-distortion
+embeddings. In 44th Annual IEEE Symposium on Foundations of Computer Science, 2003. Proceedings., pages
+534–543, 2003.
+
+[25] Tuomas Hytönen and Assaf Naor. Pisier’s inequality revisited. Studia Math., 215(3):221–235, 2013.
+[26] Piotr Indyk. Algorithmic applications of low-distortion geometric embeddings. In 42nd IEEE Symposium on
+Foundations of Computer Science (Las Vegas, NV, 2001), pages 10–33. IEEE Computer Soc., Los Alamitos, CA,
+2001.
+
+[27] Paata Ivanisvili, Ramon van Handel, and Alexander Volberg. Rademacher type and Enﬂo type coincide. Ann.
+
+of Math. (2), 192(2):665–678, 2020.
+
+[28] Robert C. James. Nonreﬂexive spaces of type 2. Israel J. Math., 30(1-2):1–13, 1978.
+[29] William B. Johnson and Joram Lindenstrauss. Extensions of Lipschitz mappings into a Hilbert space. In Con-
+ference in modern analysis and probability (New Haven, Conn., 1982), volume 26 of Contemp. Math., pages
+189–206. Amer. Math. Soc., Providence, RI, 1984.
+
+[30] William B. Johnson, Joram Lindenstrauss, and Gideon Schechtman. On Lipschitz embedding of ﬁnite metric
+spaces in low-dimensional normed spaces. In Geometrical aspects of functional analysis (1985/86), volume 1267
+of Lecture Notes in Math., pages 177–184. Springer, Berlin, 1987.
+
+[31] William B. Johnson and Gideon Schechtman. Diamond graphs and super-reﬂexivity. J. Topol. Anal., 1(2):177–
+
+[32] Vincent Laﬀorgue and Assaf Naor. A doubling subset of Lp for p > 2 that is inherently inﬁnite dimensional.
+
+189, 2009.
+
+Geom. Dedicata, 172:387–398, 2014.
+
+[33] Michel Ledoux and Michel Talagrand. Probability in Banach spaces, volume 23 of Ergebnisse der Mathematik und
+ihrer Grenzgebiete (3) [Results in Mathematics and Related Areas (3)]. Springer-Verlag, Berlin, 1991. Isoperimetry
+and processes.
+
+[34] James R. Lee, Manor Mendel, and Assaf Naor. Metric structures in L1: dimension, snowﬂakes, and average
+
+distortion. European J. Combin., 26(8):1180–1190, 2005.
+
+[35] James R. Lee and Assaf Naor. Embedding the diamond graph in Lp and dimension reduction in L1. Geom.
+
+Funct. Anal., 14(4):745–747, 2004.
+
+[36] James R. Lee, Assaf Naor, and Yuval Peres. Trees and Markov convexity. Geom. Funct. Anal., 18(5):1609–1659,
+
+2009.
+
+[37] David A. Levin and Yuval Peres. Markov chains and mixing times. American Mathematical Society, Providence,
+RI, second edition, 2017. With contributions by Elizabeth L. Wilmer, With a chapter on “Coupling from the
+past” by James G. Propp and David B. Wilson.
+
+[38] Nathan Linial. Finite metric-spaces—combinatorics, geometry and algorithms. In Proceedings of the Interna-
+
+tional Congress of Mathematicians, Vol. III (Beijing, 2002), pages 573–586. Higher Ed. Press, Beijing, 2002.
+
+[39] Nathan Linial, Avner Magen, and Assaf Naor. Girth and Euclidean distortion. Geom. Funct. Anal., 12(2):380–
+
+394, 2002.
+
+17
+
+[40] Michael B. Marcus and Gilles Pisier. Characterizations of almost surely continuous p-stable random Fourier
+
+series and strongly stationary processes. Acta Math., 152(3-4):245–301, 1984.
+
+[41] Jiří Matoušek. Note on bi-Lipschitz embeddings into normed spaces. Comment. Math. Univ. Carolin., 33(1):51–
+
+55, 1992.
+
+[42] Jiří Matoušek. On the distortion required for embedding ﬁnite metric spaces into normed spaces. Israel J.
+
+Math., 93:333–344, 1996.
+
+[43] Jiří Matoušek. Using the Borsuk-Ulam theorem. Universitext. Springer-Verlag, Berlin, 2003. Lectures on topo-
+logical methods in combinatorics and geometry, Written in cooperation with Anders Björner and Günter M.
+Ziegler.
+
+[44] Bernard Maurey and Gilles Pisier. Séries de variables aléatoires vectorielles indépendantes et propriétés
+
+géométriques des espaces de Banach. Studia Math., 58(1):45–90, 1976.
+
+[45] Manor Mendel and Assaf Naor. Metric cotype. Ann. of Math. (2), 168(1):247–298, 2008.
+[46] Assaf Naor. An introduction to the Ribe program. Jpn. J. Math., 7(2):167–233, 2012.
+[47] Assaf Naor. Comparison of metric spectral gaps. Anal. Geom. Metr. Spaces, 2(1):1–52, 2014.
+[48] Assaf Naor. A spectral gap precludes low-dimensional embeddings. In 33rd International Symposium on Com-
+putational Geometry, volume 77 of LIPIcs. Leibniz Int. Proc. Inform., pages Art. No. 50, 16. Schloss Dagstuhl.
+Leibniz-Zent. Inform., Wadern, 2017.
+
+[49] Assaf Naor. Metric dimension reduction: a snapshot of the Ribe program. In Proceedings of the International
+Congress of Mathematicians—Rio de Janeiro 2018. Vol. I. Plenary lectures, pages 759–837. World Sci. Publ.,
+Hackensack, NJ, 2018.
+
+[50] Assaf Naor. An average John theorem. Geom. Topol., 25(4):1631–1717, 2021.
+[51] Assaf Naor, Yuval Peres, Oded Schramm, and Scott Sheﬃeld. Markov chains in smooth Banach spaces and
+
+Gromov-hyperbolic metric spaces. Duke Math. J., 134(1):165–197, 2006.
+
+[52] Assaf Naor, Gilles Pisier, and Gideon Schechtman. Impossibility of dimension reduction in the nuclear norm.
+
+Discrete Comput. Geom., 63(2):319–345, 2020.
+
+[53] Assaf Naor and Gideon Schechtman. Remarks on non linear type and Pisier’s inequality. J. Reine Angew. Math.,
+
+552:213–236, 2002.
+
+[54] Assaf Naor and Robert Young. Foliated corona decompositions. Acta Math., 229(1):55–200, 2022.
+[55] Shin-Ichi Ohta. Markov type of Alexandrov spaces of non-negative curvature. Mathematika, 55(1-2):177–189,
+
+2009.
+
+[56] Krzysztof Oleszkiewicz. On a discrete version of the antipodal theorem. Fund. Math., 151(2):189–194, 1996.
+[57] Gilles Pisier. Sur les espaces de Banach qui ne contiennent pas uniformément de l1
+n. C. R. Acad. Sci. Paris Sér.
+
+A-B, 277:A991–A994, 1973.
+
+[58] Gilles Pisier. “Type” des espaces normés. In Séminaire Maurey-Schwartz 1973–1974: Espaces Lp, applications
+
+radoniﬁantes et géométrie des espaces de Banach, Exp. No. 3,, pages 12 pp. (errata, p. E.1). „ 1974.
+
+[59] Gilles Pisier. Une propriété du type p-stable. In Séminaire Maurey-Schwartz 1973–1974: Espaces Lp, applica-
+tions radoniﬁantes et géométrie des espaces de Banach, pages Exp. No. 8, 10 pp. (errata, p. E.1). École Polytech.,
+Paris, 1974.
+
+[60] Gilles Pisier. Martingales with values in uniformly convex spaces. Israel J. Math., 20(3-4):326–350, 1975.
+[61] Gilles Pisier. Un exemple concernant la super-réﬂexivité. In Séminaire Maurey-Schwartz 1974–1975: Espaces
+
+Lp applications radoniﬁantes et géométrie des espaces de Banach, Annexe No. 2,, page 12. „ 1975.
+
+1982.
+
+[63] Gilles Pisier. On the dimension of the ln
+
+[62] Gilles Pisier. Holomorphic semigroups and the geometry of Banach spaces. Ann. of Math. (2), 115(2):375–392,
+p -subspaces of Banach spaces, for 1 ≤ p < 2. Trans. Amer. Math. Soc.,
+[64] Gilles Pisier. Probabilistic methods in the geometry of Banach spaces. In Probability and analysis (Varenna,
+
+276(1):201–211, 1983.
+
+1985), volume 1206 of Lecture Notes in Math., pages 167–241. Springer, Berlin, 1986.
+
+[65] Gilles Pisier and Quanhua Xu. Random series in the real interpolation spaces between the spaces vp. In
+Geometrical aspects of functional analysis (1985/86), volume 1267 of Lecture Notes in Math., pages 185–209.
+Springer, Berlin, 1987.
+
+[66] Martin Ribe. On uniformly homeomorphic normed spaces. Ark. Mat., 14(2):237–244, 1976.
+[67] Michel Talagrand. Isoperimetry, logarithmic Sobolev inequalities on the discrete cube, and Margulis’ graph
+
+connectivity theorem. Geom. Funct. Anal., 3(3):295–314, 1993.
+
+[68] Michel Talagrand. On Russo’s approximate zero-one law. Ann. Probab., 22(3):1576–1587, 1994.
+[69] Santosh S. Vempala. The random projection method, volume 65 of DIMACS Series in Discrete Mathematics and
+Theoretical Computer Science. American Mathematical Society, Providence, RI, 2004. With a foreword by Chris-
+tos H. Papadimitriou.
+
+CNRS, Institut de Mathématiques de Jussieu, Sorbonne Université, France and Trinity College, University
+
+of Cambridge, UK.
+
+Email address: alexandros.eskenazis@imj-prg.fr, ae466@cam.ac.uk
+
+18
+
+
